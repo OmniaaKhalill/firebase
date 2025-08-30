@@ -1,11 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import firebase from 'firebase/compat/app';
+import { not } from 'rxjs/internal/util/not';
 
 @Component({
   selector: 'app-home',
   imports: [],
   templateUrl: './home.html',
-  styleUrl: './home.css'
+  styleUrl: './home.css',
 })
-export class Home {
+export class Home  {
 
 }

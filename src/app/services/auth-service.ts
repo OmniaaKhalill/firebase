@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { authclass } from '../pages/login/login';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,15 @@ constructor( private auth: Auth , private router: Router){
 
 }
 
-login( email:string, password:string){
+login( auth: authclass){
 
-
-  signInWithEmailAndPassword(this.auth, email, password)
-
+  signInWithEmailAndPassword(this.auth, auth.email, auth.password)
   .then((userCredential) => {
-
     alert("logedin")
     this.router.navigateByUrl("home")
-    const user = userCredential.user;
+    const user = userCredential;
 
-    console.log(user)
+    console.log("ay 7aga:" + user)
     // ...
   })
   .catch((error) => {
@@ -32,6 +30,27 @@ login( email:string, password:string){
     const errorCode = error.code;
     const errorMessage = error.message;
   })}
+
+
+
+Register( email:string, password:string){
+
+  createUserWithEmailAndPassword(this.auth, email, password)  
+
+  .then((userCredential) => {
+    alert("Created")
+    this.router.navigateByUrl("home")
+  
+    // ...
+  })
+  .catch((error) => {
+    alert("error")
+    this.router.navigateByUrl("login")
+    const errorCode = error.code;
+    const errorMessage = error.message;
+  })
+  }
+
 
 
   logout( ){

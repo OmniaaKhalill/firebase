@@ -12,18 +12,35 @@ import { AuthService } from '../../services/auth-service';
 })
 export class Login {
 
-email:string=""
-password:string=""
+logIn:authclass=new authclass("","")
+reg:authclass=new authclass("","")
 
-  constructor( private route:Router , private auth:AuthService ){
+
+  constructor( private route:Router , private authService:AuthService ){
 
   }
 
-
   login(){
 
-this.auth.login(this.email,this.password)
 
+this.authService.login(this.logIn)
   
+  }
+
+
+  Rgister(){
+   this.authService.Register(this.reg.email,this.reg.password) 
+  }
+}
+
+
+export class authclass{
+  constructor(
+public email:string,
+public password:string,
+
+
+  ){
+
   }
 }

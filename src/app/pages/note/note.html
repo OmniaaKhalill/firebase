@@ -1,0 +1,38 @@
+<h1 class="m-5" > Notes</h1>
+
+<button class="btn btn-primary" (click)="GetData()" >Get Notes</button>
+
+<h1 class="m-5" > Add Note</h1>
+
+<form>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Name</label>
+    <input type="email" class="form-control" [(ngModel)]="note.name" name="name"id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Content</label>
+    <input type="email" class="form-control" [(ngModel)]="note.content" name="content"id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+
+  <button  class="btn btn-primary" (click)="AddNote()" >Add note</button>
+</form>
+
+
+
+<h1 class="m-5" > Delete note</h1>
+
+<form>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Id</label>
+    <input type="email" class="form-control" [(ngModel)]="id" name="id"id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+
+ 
+
+
+  <button  class="btn btn-primary" (click)="deleteNote()" >Delete note</button>
+</form>

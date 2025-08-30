@@ -16,7 +16,9 @@ export class NavBar {
   }
 
 
-
+Note(){
+  this.route.navigateByUrl("note")
+}
 
   login(){
 
